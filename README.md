@@ -7,7 +7,7 @@ npm install
 2) Install bower modules. 
 bower install
 3) Install gem
-gem install compass
+sudo gem install compass
 4) Install grunt 
 npm install -g grunt-cli
 5) Run grunt server. 
