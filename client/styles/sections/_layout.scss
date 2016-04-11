@@ -1,0 +1,57 @@
+html {
+	overflow: auto;
+}
+
+h1 {
+	color: black;
+    font-weight: bold;
+}
+
+.badge {
+
+	&.completion-progress {
+	    padding: 12px 5px;
+	    font-size: 17px;
+	    border-radius: 20px;
+	    min-width: 43px;
+	    background-color: #00BFFF;
+	}
+}
+
+.panel {
+	&.panel-default {
+		.panel-heading {
+			background-color: #00BFFF;	
+			color: #FFFFFF;
+		}
+	}
+}
+
+.page {
+	margin-left: 25%;
+}
+
+.top-header {
+	position: fixed;
+}
+
+.side-navigation-wrapper {
+	position: fixed;
+	ul.side-navigation {
+		.badge {
+			margin-right: 10px;
+		}
+
+		li {
+			a {
+
+				&.active {
+					.badge {
+						background-color: #00BFFF;
+					}	
+				}
+			}
+		}	
+	}	
+}
+

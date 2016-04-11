@@ -17,12 +17,15 @@
         // ,'app.table'
         // ,'app.chart
 
+        //plugins
+        ,'ui.bootstrap'
+        ,'smoothScroll'
+
         // pages
         ,'restangular'
         ,'app.login'
-        ,'app.projectInitiation'
         ,'app.questionnaire'
-
+        ,'app.toDo'
 
     ])
 })();
