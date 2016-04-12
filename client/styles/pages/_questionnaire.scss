@@ -12,7 +12,7 @@ body {
  padding-top:50px;
 }
 
-#masthead { 
+#masthead {
  min-height:250px;
 }
 
@@ -47,7 +47,7 @@ body {
   	margin-top:30px;
   	width:228px;
   }
-  
+
   #sidebar.affix {
     position: fixed;
     top:70px;
@@ -60,3 +60,19 @@ body {
   border-right-width:5px;
 }
 
+
+
+.panel-body{
+  .questionnaire-form-input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 8px 0;
+    margin: 8px 0 8px 8px;
+    display: inline-block;
+    float: left;
+  }
+  #firstname, #middlename, #lastname{
+    width: 30%;
+  }
+}
