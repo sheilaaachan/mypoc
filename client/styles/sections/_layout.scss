@@ -1,3 +1,7 @@
+/*************************************
+* HTML elements
+**************************************/
+
 html {
 	overflow: auto;
 }
@@ -14,6 +18,10 @@ h2 {
 		color: rgba(0,0,0,0.38);
 		line-height: 28px;
 }
+
+/*************************************
+* Bootstrap UI elements
+**************************************/
 
 .badge {
 
@@ -56,9 +64,18 @@ h2 {
 .panel {
 	&.panel-default {
 		.panel-heading {
-			background-color: #00BFFF;
+			background-color: #00BFFF;	
 			color: #FFFFFF;
+
+			a.action {
+				float: right;
+				color: #FFFFFF;
+			}
 		}
+	}
+
+	.panel-body {
+		padding: 25px 15px;
 	}
 }
 
@@ -66,12 +83,16 @@ h2 {
 	margin-left: 25%;
 }
 
+.page-header {
+	border-bottom: none;
+}
+
 .top-header {
 	position: fixed;
 }
 
 .side-navigation-wrapper {
-	position: fixed;
+	//position: fixed;
 	ul.side-navigation {
 		.badge {
 			margin-right: 10px;
@@ -88,4 +109,12 @@ h2 {
 			}
 		}
 	}
+}
+
+/*****************************************
+* forms
+******************************************/
+
+.form-group {
+	color: #767676;
 }

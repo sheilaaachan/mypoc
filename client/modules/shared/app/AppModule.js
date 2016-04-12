@@ -20,12 +20,13 @@
         //plugins
         ,'ui.bootstrap'
         ,'smoothScroll'
+        ,'LocalStorageModule'
 
         // pages
         ,'restangular'
         ,'app.login'
         ,'app.questionnaire'
         ,'app.toDo'
-
+        ,'app.documentUpload'
     ])
 })();

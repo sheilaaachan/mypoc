@@ -24,13 +24,13 @@
 <div class="container">
 	<div class="row">
       <!--left-->
-      <div class="col-md-3" id="leftCol">
-        <ul class="nav nav-stacked" id="sidebar">
-		  <li role="presentation"><a href="#basic-information" class="active"><span class="badge questionnaire-badge">1</span> Basic Information</a></li>
-		  <li role="presentation"><a href="#contact-information"><span class="badge questionnaire-badge">2</span> Contact information</a></li>
-		  <li role="presentation"><a href="#citizenship"><span class="badge questionnaire-badge">3</span> Citizenship</a></li>
-		  <li role="presentation"><a href="#education-history"><span class="badge questionnaire-badge">4</span> Education history</a></li>
-		  <li role="presentation"><a href="#future-travel"><span class="badge questionnaire-badge">5</span> Future travel</a></li>
+      <div class="col-md-3 side-navigation-wrapper" id="leftCol">
+        <ul class="nav nav-stacked side-navigation" id="sidebar">
+		  <li role="presentation"><a href="#basic-information" ng-class="{active: QuestionnaireCtrl.isActive('basic-information')}" ng-click="QuestionnaireCtrl.setActive('basic-information')"><span class="badge">1</span> Basic Information</a></li>
+		  <li role="presentation"><a href="#contact-information" ng-class="{active: QuestionnaireCtrl.isActive('contact-information')}" ng-click="QuestionnaireCtrl.setActive('contact-information')"><span class="badge">2</span> Contact information</a></li>
+		  <li role="presentation"><a href="#citizenship" ng-class="{active: QuestionnaireCtrl.isActive('citizenship')}" ng-click="QuestionnaireCtrl.setActive('citizenship')"><span class="badge">3</span> Citizenship</a></li>
+		  <li role="presentation"><a href="#education-history" ng-class="{active: QuestionnaireCtrl.isActive('education-history')}" ng-click="QuestionnaireCtrl.setActive('education-history')"><span class="badge">4</span> Education history</a></li>
+		  <li role="presentation"><a href="#future-travel" ng-class="{active: QuestionnaireCtrl.isActive('future-travel')}" ng-click="QuestionnaireCtrl.setActive('future-travel')"><span class="badge">5</span> Future travel</a></li>
 <!-- 		  <li role="presentation"><a href="#sec4"><span class="badge">6</span> Immigration documents</a></li>
 		  <li role="presentation"><a href="#sec4"><span class="badge">7</span> Family members</a></li>
 		  <li role="presentation"><a href="#sec4"><span class="badge">8</span> Additional questions</a></li> -->
@@ -39,31 +39,73 @@
 
       <!--right-->
       <div class="col-md-9">
+
       <section class="panel panel-default" id="basic-information">
       	<div class="panel-heading">Basic Information</div>
 		<div class="panel-body">
-			<form>
-			  <fieldset class="form-group">
-			    <input type="input" class="form-control questionnaire-form-input" id="firstname" placeholder="Legal first name *">
-					<input type="input" class="form-control questionnaire-form-input" id="middlename" placeholder="Legal middle name">
-					<input type="input" class="form-control questionnaire-form-input" id="lastname" placeholder="Legal last name *">
-			  </fieldset>
+			<form name="questionnaireForm">
+			    <fieldset class="form-group">
+					<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.prefix" class="form-control questionnaire-form-input" id="prefix" placeholder="Mr.">
+			    </fieldset>
+			    <fieldset class="form-group">
+				    <input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.firstname" class="form-control questionnaire-form-input" id="firstname" placeholder="Legal first name *">
+					<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.middlename" class="form-control questionnaire-form-input" id="middlename" placeholder="Legal middle name">
+					<input type="input" class="form-control questionnaire-form-input" id="lastname" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.lastname" placeholder="Legal last name *">
+			    </fieldset>
+			    <fieldset class="form-group">
+			    	<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.preferredFirstName" class="form-control questionnaire-form-input" id="preferredFirstName" placeholder="Preferred First Name">
+			    </fieldset>
+			    <fieldset class="form-group">
+			    	<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.maidenOtherNames" class="form-control questionnaire-form-input" id="maidenOtherNames" placeholder="Maiden/Other names">
+			    </fieldset>
+			    <fieldset class="form-group">
+				    	<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.countryOfBirth" class="form-control questionnaire-form-input" id="countryOfBirth" placeholder="Country of birth">
+				  </fieldset>
+				  <fieldset class="form-group">
+				    	<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.cityOfBirth" class="form-control questionnaire-form-input" id="cityOfBirth" placeholder="City of birth">
+				  </fieldset>
+				  <fieldset class="form-group">
+				    	<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.stateProvinceOfBirth" class="form-control questionnaire-form-input" id="stateProvinceOfBirth" placeholder="State/Province of Birth">
+				  </fieldset>
+				  <fieldset class="form-group">
+				    	<input type="input" ng-model="QuestionnaireCtrl.questionnaire.basicInformation.citizenship" class="form-control questionnaire-form-input" id="citizenship" placeholder="Citizenship">
+				  </fieldset>
 				<fieldset class="form-group">
-					<input type="radio" name="gender" value="male" checked> Male
-				  <input type="radio" name="gender" value="female"> Female
-				  <input type="radio" name="gender" value="other"> Other
-			  </fieldset>
+					<div class="col-sm-2">
+							<label for="gender">Gender</label>
+					</div>
+					<div class="col-sm-10">
+						<input ng-model="QuestionnaireCtrl.questionnaire.basicInformation.gender" type="radio" name="gender" value="male" checked> Male
+					    <input ng-model="QuestionnaireCtrl.questionnaire.basicInformation.gender" type="radio" name="gender" value="female"> Female
+					    <input ng-model="QuestionnaireCtrl.questionnaire.basicInformation.gender" type="radio" name="gender" value="other"> Other
+			    	</div>
+			    </fieldset>
 				<fieldset class="form-group">
-			    <label for="exampleSelect2">Marital Status</label>
-			    <select multiple class="form-control" id="exampleSelect2">
-			      <option>Single</option>
-			      <option>Married</option>
-			      <option>Divorced</option>
-			    </select>
-			  </fieldset>
+						<div class="col-sm-2">
+							<label for="maritalStatus">Marital Status</label>
+						</div>
+						<div class="col-sm-4">
+							<select ng-model="QuestionnaireCtrl.questionnaire.basicInformation.maritalStatus" class="form-control" id="maritalStatus">
+						      <option value="">Select</option>
+						      <option>Single</option>
+						      <option>Married</option>
+						      <option>Divorced</option>
+						    </select>
+						</div>		
+			    </fieldset>
 				<fieldset class="form-group">
-					<input type="date" name="bday">
+					<div class="col-sm-2">
+						<label for="dateOfBirth">Date of birth</label>
+					</div>
+					<div class="col-sm-2">
+						<input ng-model="QuestionnaireCtrl.questionnaire.basicInformation.dateOfBirth" type="date" name="bday">
+					</div>
 			  </fieldset>
+			  
+			  <div class="col-sm-12">
+			  	<button type="submit" class="btn btn-primary" ng-click="QuestionnaireCtrl.saveQuestionnaire(questionnaireForm, QuestionnaireCtrl.questionnaire, 'create')">Save</button>
+			  </div>
+			  
 			</form>
 		</div>
 	</section>
@@ -132,7 +174,7 @@
 			      <input type="checkbox"> Check me out
 			    </label>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
 	</section>
@@ -201,7 +243,7 @@
 			      <input type="checkbox"> Check me out
 			    </label>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
 	</section>
@@ -270,7 +312,7 @@
 			      <input type="checkbox"> Check me out
 			    </label>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
 	</section>
@@ -339,7 +381,7 @@
 			      <input type="checkbox"> Check me out
 			    </label>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
 	</section>
